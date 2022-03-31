@@ -48,6 +48,6 @@ class PenjualanRepo {
                 ->where('tanggal', '<=', new \DateTime($data['tgl2']))
                 ->get();
         $arr = ["Selamat menikmati !",$res];
-        return $arr;
+        return $arr; 
     }
 }

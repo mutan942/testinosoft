@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
 use Illuminate\Support\Facades\Validator;
+use App\Services\Nodes\NodeJWTService;
 
 class KendaraanController extends Controller
 {
     private $pservice;
+    private $jwtService;
 
-    public function __construct(ProductService $pservice){
+    public function __construct(ProductService $pservice, NodeJWTService $jwtService){
         $this->pservice = $pservice;
+        $this->jwtService = $jwtService;
     }
 
     public function index(Request $request)
