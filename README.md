@@ -62,3 +62,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## INSTALL
+- Clone this project
+- Set MongoDB connection dan database
+- Migrate if u want
+- Use this method to inserting or get data
+-   1. http://127.0.0.1:8000/api/getstok => For Getstok
+-   2. http://127.0.0.1:8000/api/simpanmopbil => For Insert Data Product
+-   3. http://127.0.0.1:8000/api/penjualan => For Action Sale Product
+-   4. http://127.0.0.1:8000/api/laporan => Get Transaction Filter By Date
