@@ -37,7 +37,11 @@ class KendaraanController extends Controller
         
         //response error validation
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            $res = [
+                'success' => false,
+                'message' => $validator->errors()
+            ];
+            return response()->json($res, 400);
         }
         $data['tahun_keluaran'] = $request->get('tahun_keluaran');
         $data['warna'] = $request->get('warna');

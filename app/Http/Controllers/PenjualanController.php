@@ -16,10 +16,23 @@ class PenjualanController extends Controller
 
     public function store(Request $request)
     {
+        //set validation
+        $validator = Validator::make($request->all(), [
+            'id_barang'   => 'required',
+            'qty' => 'required'
+        ]);
+        
+        //response error validation
+        if ($validator->fails()) {
+            $res = [
+                'success' => false,
+                'message' => $validator->errors()
+            ];
+            return response()->json($res, 400);
+        }
+
         $car["id_barang"] = $request->get('id_barang');
-        $car["qty"] = intval($request->get('qty'));  
-        $car["harga"] = intval($request->get('harga'));  
-        $car["total"] = floatval($car["qty"]*$car["harga"]);  
+        $car["qty"] = intval($request->get('qty')); 
         $car["tanggal"] = date("Y-m-d H:i:s");
         $test = $this->pservice->jualbarang($car);
         return response()->json($test, 200);
